@@ -43,7 +43,7 @@ const AboutUs = props => {
           alt={about.imageAlt}
           width="200"
         />
-        {/* i need to display my intro paragraph by paragraph since it's an array with multiple strings */}
+        {/* I need to display my intro paragraph by paragraph since it's an array with multiple strings */}
         {about.paragraphs.map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}
