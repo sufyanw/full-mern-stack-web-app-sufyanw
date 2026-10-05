@@ -78,5 +78,27 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
+app.get('/about', async (req, res) => {
+  try {
+      res.json({
+          title: 'About Us',
+          paragraphs: [
+              "Hi, I'm Sufyan Waryah, a senior at New York University studying Computer Science.", 
+              "My favorite travel destination is Brussels, Belgium. My favorite artist is Wolfgang Amadeus Mozart.", 
+              "When I'm not studying or working, I enjoy hiking, biking, and spending time with friends and family."
+          ],
+          imageUrl: '/profile.png',
+          imageAlt: 'Picture of Sufyan Waryah',
+          status: 'all good',
+      })
+  } catch (err) {
+    console.error(err)
+    return res.status(500).json({ // internal server error rather than 400 since this route only retrieves data
+      error: err,
+      status: 'failed to load about us',
+    })
+  }
+})
+
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
